@@ -1,0 +1,432 @@
+/* Variables */
+:root {
+    --primary-green: #27ae60;
+    --primary-green-dark: #219653;
+    --dark-bg: #2c3e50;
+    --dark-text: #ecf0f1;
+    --light-bg: #ffffff;
+    --light-text: #333333;
+    --border-radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --dark-bg: #1a1a1a;
+    --dark-text: #f0f0f0;
+    --light-bg: #2d2d2d;
+    --light-text: #f0f0f0;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--light-text);
+    background-color: var(--light-bg);
+    transition: var(--transition);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.main-title {
+    font-size: 2.8rem;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--dark-text);
+    opacity: 0.9;
+}
+
+/* Sections */
+main > section {
+    background-color: var(--dark-bg);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+section h2 {
+    color: var(--dark-text);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--dark-text);
+    transition: var(--transition);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Buttons */
+button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+}
+
+.btn-add-player {
+    background-color: var(--primary-green);
+    color: white;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+}
+
+.btn-add-player:hover {
+    background-color: var(--primary-green-dark);
+    transform: translateY(-2px);
+}
+
+.btn-generate {
+    background-color: var(--primary-green);
+    color: white;
+    width: 100%;
+    padding: 18px;
+    font-size: 20px;
+    border-radius: var(--border-radius);
+}
+
+.btn-generate:hover:not(:disabled) {
+    background-color: var(--primary-green-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
+}
+
+.btn-generate:disabled {
+    background-color: #7f8c8d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-clear {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-clear:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--dark-text);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Section Headers */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.players-actions, .teams-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Players List */
+.players-list {
+    list-style: none;
+    min-height: 100px;
+}
+
+.player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.player-item:hover {
+    transform: translateX(5px);
+    border-color: var(--primary-green);
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.player-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.player-level {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.level-1 { background-color: #e74c3c; color: white; } /* Fraco */
+.level-2 { background-color: #f39c12; color: white; } /* Médio */
+.level-3 { background-color: #3498db; color: white; } /* Bom */
+.level-4 { background-color: #9b59b6; color: white; } /* Craque */
+
+.delete-player {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    padding: 8px 12px;
+}
+
+.delete-player:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+/* Team Options */
+.team-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.team-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--dark-text);
+    flex: 1;
+    min-width: 100px;
+    padding: 12px;
+}
+
+.team-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.team-btn.active {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+/* Teams Section */
+.teams-section.hidden {
+    display: none;
+}
+
+.teams-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.team-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.team-stats {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.team-players {
+    list-style: none;
+}
+
+.team-player {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.team-player:last-child {
+    border-bottom: none;
+}
+
+.player-total-level {
+    font-weight: 600;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+.dark-mode-toggle:hover {
+    transform: rotate(15deg);
+    background-color: var(--primary-green);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    main > section {
+        padding: 20px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .players-actions, .teams-actions {
+        justify-content: center;
+    }
+    
+    .team-buttons {
+        flex-direction: column;
+    }
+    
+    .teams-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .btn-generate {
+        padding: 15px;
+        font-size: 18px;
+    }
+}

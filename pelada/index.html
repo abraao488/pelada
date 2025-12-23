@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeladaFácil - Crie times equilibrados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>PeladaFácil</h1>
+        <p>Crie times equilibrados para sua pelada</p>
+    </header>
+
+    <main>
+        <section class="player-registration">
+            <h2>Adicionar Jogador</h2>
+            <form id="player-form">
+                <div class="form-group">
+                    <label for="player-name">Nome do Jogador:</label>
+                    <input type="text" id="player-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="player-level">Nível do Jogador:</label>
+                    <select id="player-level" required>
+                        <option value="">Selecione o nível</option>
+                        <option value="1">Iniciante</option>
+                        <option value="2">Médio</option>
+                        <option value="3">Bom</option>
+                        <option value="4">Craque</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Adicionar Jogador</button>
+            </form>
+        </section>
+
+        <section class="players-list">
+            <h2>Jogadores Adicionados (<span id="player-count">0</span>)</h2>
+            <ul id="players-container"></ul>
+            
+            <div class="actions">
+                <button id="generate-teams" disabled>Gerar Times</button>
+                <button id="reshuffle-teams" disabled>Sortear Novamente</button>
+                <button id="clear-list">Limpar Lista</button>
+            </div>
+        </section>
+
+        <section class="teams-display" id="teams-section" style="display: none;">
+            <h2>Times Gerados</h2>
+            <div id="teams-container"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
